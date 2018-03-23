@@ -1,17 +1,32 @@
 <template>
   <div id="app">
-    <img src="./assets/logo.png">
-    <HelloWorld msg="Welcome to Your Vue.js App"/>
+    <v-toolbar color="grey darken-4" class="white--text"> 
+      
+        <img height="50px" src="./assets/logo.png" >
+        <v-toolbar-title>CONTACTS</v-toolbar-title> 
+        
+        <v-spacer></v-spacer>
+        <v-toolbar-items class="hello">
+          <v-btn v-on:click= "change()" class="white--text" style="border:0px">
+            <i class="material-icons" style="font-size:35px; padding-bottom: 10px">person</i>         
+          </v-btn>
+        </v-toolbar-items>    
+    </v-toolbar>
+    <router-view></router-view>
   </div>
 </template>
 
 <script>
-import HelloWorld from './components/HelloWorld.vue'
-
+import home from './components/home.vue'
 export default {
   name: 'app',
   components: {
-    HelloWorld
+    home
+  },
+  methods: {
+      change (){
+        this.$router.push('/')      
+    }
   }
 }
 </script>
@@ -23,6 +38,35 @@ export default {
   -moz-osx-font-smoothing: grayscale;
   text-align: center;
   color: #2c3e50;
-  margin-top: 60px;
+}
+
+
+
+li {
+
+    display: block;
+    color: white;
+    text-align: left ;
+    padding: 20px 20px;
+    text-decoration: none;
+
+}
+.button{
+    border: none;
+    border-radius: 2px;
+
+}
+
+.button-close{
+    background-color: pink;
+
+}
+.logo {
+  list-style-type: none;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+    background-color: #333;
+
 }
 </style>
